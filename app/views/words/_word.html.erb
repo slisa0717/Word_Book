@@ -1,12 +1,11 @@
-<div id="<%= dom_id word %>">
-  <p>
+<div id="<%= dom_id word %>" class="word-row">
+  <div class="word-column">
     <strong>English:</strong>
-    <%= word.english %>
-  </p>
+    <span><%= word.english %></span>
+  </div>
 
-  <p>
+  <div class="word-column">
     <strong>Japanese:</strong>
-    <%= word.japanese %>
-  </p>
-
+    <span><%= word.japanese %></span>
+  </div>
 </div>
