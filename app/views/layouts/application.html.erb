@@ -1,15 +1,77 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>WordBook</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定ヘッダーのサンプル</title>
+    <style>
+        /* ブラウザ独自の余白をリセット */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
+        /* ヘッダーのスタイル */
+        header {
+            position: fixed;   /* 画面に固定 */
+            top: 0;            /* 上端に配置 */
+            left: 0;
+            width: 100%;       /* 横幅いっぱいに広げる */
+            height: 60px;      /* ヘッダーの高さ */
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;     /* コンテンツより上に表示 */
+        }
 
-  <body>
-    <%= yield %>
-  </body>
+        /* メインコンテンツのスタイル */
+        main {
+            /* ヘッダーの高さ分だけ上に余白を作る（重要！） */
+            margin-top: 60px; 
+            padding: 20px;
+            line-height: 1.6;
+            height: 2000px; /* スクロール確認用の高さ */
+            background-color: #f4f4f4;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin-left: auto;
+        }
+
+        nav li {
+            margin-left: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>My Logo</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>メインコンテンツ</h2>
+        <%= yield %>
+        <p>ヘッダーが固定されているので、スクロールしても常に上に表示されます。</p>
+        <p>※ `main` 要素に `margin-top` を設定しないと、最初の文章がヘッダーの下に隠れてしまいます。</p>
+    </main>
+
+</body>
 </html>
