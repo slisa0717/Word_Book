@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'top/index'
+  root 'top#index'
   resources :words
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
