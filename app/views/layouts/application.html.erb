@@ -4,59 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>固定ヘッダーのサンプル</title>
-    <style>
-        /* ブラウザ独自の余白をリセット */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* ヘッダーのスタイル */
-        header {
-            position: fixed;   /* 画面に固定 */
-            top: 0;            /* 上端に配置 */
-            left: 0;
-            width: 100%;       /* 横幅いっぱいに広げる */
-            height: 60px;      /* ヘッダーの高さ */
-            background-color: orange;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-            z-index: 1000;     /* コンテンツより上に表示 */
-        }
-
-        /* メインコンテンツのスタイル */
-        main {
-            /* ヘッダーの高さ分だけ上に余白を作る（重要！） */
-            margin-top: 60px; 
-            padding: 20px;
-            line-height: 1.6;
-            height: 2000px; /* スクロール確認用の高さ */
-            background-color: #f4f4f4;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            margin-left: auto;
-        }
-
-        nav li {
-            margin-left: 20px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-        }
-    </style>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
 </head>
 <body>
 
     <header>
-        <%= link_to image_tag('/img/ロゴサンプル.png', alt: 'Logo', style: 'max-height: 60px; height: auto; width: auto;'), root_path %>
+        <%= link_to image_tag('/img/ロゴサンプル.png', alt: 'Logo', class: 'header-logo'), root_path %>
         <h1>My Logo</h1>
         <nav>
             <ul>
