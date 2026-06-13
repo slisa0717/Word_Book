@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'top#index'
+  root 'words#index'
   get '/lisa', to: 'top#lisa'
   get '/juns/index', to: 'juns#index'
   resources :words
