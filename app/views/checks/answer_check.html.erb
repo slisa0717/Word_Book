@@ -1,0 +1,26 @@
+<div class="answer-check">
+  <h2><%= @word.english %></h2>
+  
+  <div class="result">
+    <% if @is_correct %>
+      <h3 style="color: green;">✓ 正解です！</h3>
+    <% else %>
+      <h3 style="color: red;">✗ 不正解です</h3>
+    <% end %>
+  </div>
+  
+  <div class="answer-details">
+    <p>
+      <strong>あなたの答え：</strong>
+      <span style="<%= @is_correct ? 'color: green;' : 'color: red;' %>"><%= @user_answer %></span>
+    </p>
+    <p>
+      <strong>正解：</strong>
+      <span style="color: green;"><%= @correct_answer %></span>
+    </p>
+  </div>
+  
+  <div class="actions">
+    <%#= link_to "次の問題へ", checks_path, class: "btn btn-primary" %>
+  </div>
+</div>

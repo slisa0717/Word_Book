@@ -3,3 +3,13 @@ check の確認
 <%= @word.id %>:
 <%= @word.english %> の日本語は何でしょうか？
 
+<%= form_with(url: "/checks/answer_check", local: true, method: :post) do |form| %>
+  <%= form.hidden_field :word_id, value: @word.id %>
+  <div class="field">
+    <%= form.label :japanese %>
+    <%= form.text_field :japanese, placeholder: "日本語を入力してください" %>
+  </div>
+  <div class="actions">
+    <%= form.submit "確認" %>
+  </div>
+<% end %>
