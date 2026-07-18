@@ -5,6 +5,7 @@
 <br>
 
 <div>
-  <%= link_to "Show this word", @word %> |
-  <%= link_to "Back to words", words_path %>
+  <%#= link_to "Show this word", @word %> <!--|-->
+  <%#= link_to "Back to words", words_path %>
+  <%= link_to "削除", @word, method: :delete %>
 </div>
