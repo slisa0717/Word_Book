@@ -23,6 +23,14 @@ class WordsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to word_url(Word.last)
   end
 
+  test "notice is rendered with auto-dismiss markup" do
+    post words_url, params: { word: { english: @word.english, japanese: @word.japanese } }
+    follow_redirect!
+
+    assert_response :success
+    assert_select "[data-flash-timeout='3000']"
+  end
+
   test "should show word" do
     get word_url(@word)
     assert_response :success

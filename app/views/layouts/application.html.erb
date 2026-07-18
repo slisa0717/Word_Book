@@ -37,17 +37,35 @@
     </header>
 
     <main>
-        
+      <% flash.each do |type, message| %>
+        <% if message.present? %>
+          <div class="flash-message <%= type %>" data-flash-timeout="3000">
+            <%= message %>
+          </div>
+        <% end %>
+      <% end %>
 
-    
-    <hr>
-    
-    <%= yield %>
+      <hr>
 
-    <hr>
+      <%= yield %>
 
-      
+      <hr>
     </main>
+
+    <script>
+      const initFlashMessages = () => {
+        document.querySelectorAll('[data-flash-timeout]').forEach((element) => {
+          const timeout = Number(element.getAttribute('data-flash-timeout') || 3000);
+          setTimeout(() => {
+            element.classList.add('flash-hidden');
+            setTimeout(() => element.remove(), 300);
+          }, timeout);
+        });
+      };
+
+      document.addEventListener('turbo:load', initFlashMessages);
+      document.addEventListener('DOMContentLoaded', initFlashMessages);
+    </script>
 
 </body>
 </html>
