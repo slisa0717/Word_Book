@@ -119,3 +119,15 @@ nav a {
   color: white;
   text-decoration: none;
 }
+
+.minoru{
+  text-align:center; 
+  background-color:gainsboro;
+  padding:200px 10px 60px 100px;
+  border-left:5px double red;
+  border-radius: 10px; 
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+  background-image: url("/img/ロゴサンプル.png");
+  background-size: cover;
+  margin-top:50px;
+}
