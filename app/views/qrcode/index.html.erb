@@ -1,4 +1,4 @@
-<h1>QR Code</h1>
+<h1>キューアールCode</h1>
 
 <%= form_with url: qrcode_path, method: :get, local: true do |form| %>
   <div>
@@ -7,12 +7,12 @@
   </div>
 
   <div>
-    <%= form.submit "Generate" %>
+    <%= form.submit "生成" %>
   </div>
 <% end %>
 
 <% if @text.present? %>
-  <div style="margin-top: 24px;">
+  <div style="margin-top: 24px; border: 1px solid orange; padding: 12px;">
     <%= image_tag qrcode_show_path(text: @text), alt: "QR code for #{@text}" %>
   </div>
 <% end %>
