@@ -1,0 +1,18 @@
+<h1>QR Code</h1>
+
+<%= form_with url: qrcode_path, method: :get, local: true do |form| %>
+  <div>
+    <%= form.label :text, "Text or URL" %>
+    <%= form.text_field :text, value: @text, size: 60 %>
+  </div>
+
+  <div>
+    <%= form.submit "Generate" %>
+  </div>
+<% end %>
+
+<% if @text.present? %>
+  <div style="margin-top: 24px;">
+    <%= image_tag qrcode_show_path(text: @text), alt: "QR code for #{@text}" %>
+  </div>
+<% end %>
