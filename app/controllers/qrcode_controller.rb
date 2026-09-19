@@ -10,8 +10,8 @@ class QrcodeController < ApplicationController
     png = qr.as_png(
       resize_gte_to: false,
       resize_exactly_to: false,
-      fill: "white",
-      color: "black",
+      fill: "purple",
+      color: "green",
       size: 240,
       border_modules: 4,
       module_px_size: 6,
