@@ -4,7 +4,14 @@ class WordsController < ApplicationController
   # GET /words or /words.json
   def index
     @shiken = Word.find(5)
+
+    @shiken.japanese = "ほげほげ"
+
+    @shiken = Word.find(5)
+    #@shiken = nil
     @words = Word.all
+
+    render "index"
   end
 
   # GET /words/1 or /words/1.json

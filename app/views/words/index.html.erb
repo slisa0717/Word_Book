@@ -3,8 +3,8 @@
 </h1>  
 <%= link_to 'テスト', shiken_path, class: 'btn btn-primary' %>
 <hr>
-<%= "#{@shiken.japanese}" %><br>
-<%= "#{@shiken.english}" %>
+<%= "#{@shiken.japanese}日本語"if @shiken %><br>
+<%= "#{@shiken.english}"if @shiken %>
 <hr>
 
 <%= render @words %>
