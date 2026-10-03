@@ -3,6 +3,7 @@ class WordsController < ApplicationController
 
   # GET /words or /words.json
   def index
+    @shiken = Word.find(5)
     @words = Word.all
   end
 
@@ -37,7 +38,7 @@ class WordsController < ApplicationController
   # PATCH/PUT /words/1 or /words/1.json
   def update
     respond_to do |format|
-      if @word.update(word_params)
+      if @words.update(word_params)
         format.html { redirect_to @word, notice: "Word was successfully updated.", status: :see_other }
         format.json { render :show, status: :ok, location: @word }
       else
